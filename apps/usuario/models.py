@@ -3,6 +3,27 @@ from django.db import models
 # Create your models here.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # # Modelos
 # from cgitb import text
 # from email.policy import default
