@@ -16,6 +16,11 @@ class Tipo_Plato(models.Model):
     vigencia = models.BooleanField(default=True)
 
 
+    def __str__(self):
+        texto = "{0}"
+        return texto.format(self.descripcion)
+
+
 class Vianda(models.Model):
 
     tiposmenus=(
@@ -39,5 +44,9 @@ class Vianda(models.Model):
     cantidad = models.IntegerField(default=1)
     estado = models.CharField(choices=estados,max_length=200,default='Pendiente' ,blank= True)
     tipo_platos = models.ForeignKey(Tipo_Plato, on_delete=models.CASCADE,null=False)
-    user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)
 
+
+    def __str__(self):
+        texto = "{0}"
+        return texto.format(self.tipo_platos.descripcion)

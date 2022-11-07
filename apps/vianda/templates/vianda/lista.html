@@ -30,10 +30,8 @@
                                 <th scope="col">Tipo de Menu</th>
                                 <th scope="col">Fecha de inicio vianda</th>
                                 <th scope="col">Cantidad de viandas</th>
-                                <th scope="col">Fecha del carnet</th>
-                                <th scope="col">Nro Patente</th>
-                                <th colspan="2">Opciones</th>
-
+                                <th scope="col">Estado de la vianda</th>
+                                <th scope="col">Tipo platos</th>
                             </tr>
     
                         </thead>
@@ -41,22 +39,13 @@
                             {% for e in viandas %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
-                                    <td>{{e.cuil}}</td>
-                                    <td>{{e.nombre}}</td>
-                                    <td>{{e.apellido}}</td>
-                                    <td>{{e.fecha_ingreso}}</td>
-                                    <td>{{e.fecha_vigencia_carnet}}</td>
-                                    <td>{{e.numero_patente}}</td>
-                                    <td>
-                                        <form action="{% url 'Usuario:cadete_delete' %}" method="post">
-                                            {% csrf_token %}
-                                            <input type="hidden" name="id" value="{{ e.id }}"> 
-                                            <!-- Editar -->
-                                            <a href="#" class="btn btn-warning"><i class="fa-solid fa-file-pen"></i></a>
-                                            <!-- Eliminar -->
-                                            <button type="summit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-                                        </form>
-                                    </td>
+                                    <td>{{e.frecuencia}}</td>
+                                    <td>{{e.tipo_menu}}</td>
+                                    <td>{{e.fecha_inicio_vianda}}</td>
+                                    <td>{{e.cantidad}}</td>
+                                    <td>{{e.estado}}</td>
+                                    <td>{{e.tipo_platos}}</td>
+                                   
                                 </tr>
                             {% endfor%}
                         </tbody>

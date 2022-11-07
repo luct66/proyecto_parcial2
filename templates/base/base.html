@@ -17,9 +17,10 @@
                   <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}"><a href="/">Index</a></li>
                    {% if user.is_authenticated %}
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropbtn">XXX</a>
+                        <a href="javascript:void(0)" class="dropbtn">Vianda</a>
                         <div class="dropdown-content">
                           <a href="{% url 'vianda:crearvianda' %}">Crear</a>
+                          <a href="{% url 'vianda:listavianda' %}">Lista</a>
 
                         </div>
                     </li>
