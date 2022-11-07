@@ -5,6 +5,7 @@
         <title>{% block titulo %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{% static 'css/estilos.css' %}" rel="stylesheet">
+
     </head>
     <body>
         <div class="contenedor">
@@ -18,8 +19,8 @@
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropbtn">XXX</a>
                         <div class="dropdown-content">
-                          <a href="">Listar</a>
-                          <a href="">Crear</a>
+                          <a href="{% url 'vianda:crearvianda' %}">Crear</a>
+
                         </div>
                     </li>
                     {% endif %}

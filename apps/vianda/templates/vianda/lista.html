@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}
+{% block titulo %}Inicio Sesión{% endblock %}
+{% block contenido %}
+{% load static %}
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col">
+            <h2 class="d-flex justify-content-center mb-3">Lista</h2>
+           
+              
+            <div class="form-group row">
+                <label for="cliente" class="col-form-label text-white">Buscar:</label>
+                <div class="col-12 col-md-10">
+        <form action="#" method="GET">
+            <div id="custom-search-input">
+                <input type="text" class="form-control" id="cadete" placeholder="Ingresa nombre de cadete" name="buscar">
+                    <button type="summit" class="btn btn-success" name="buscar" value="{{ request.POST.buscar }}">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>         
+        </form>                    
+            </div>
+            </div>
+
+                <div id="carrito" class="form-group table-responsive" >
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Frecuencia</th>
+                                <th scope="col">Tipo de Menu</th>
+                                <th scope="col">Fecha de inicio vianda</th>
+                                <th scope="col">Cantidad de viandas</th>
+                                <th scope="col">Fecha del carnet</th>
+                                <th scope="col">Nro Patente</th>
+                                <th colspan="2">Opciones</th>
+
+                            </tr>
+    
+                        </thead>
+                        <tbody class="body">
+                            {% for e in viandas %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{e.cuil}}</td>
+                                    <td>{{e.nombre}}</td>
+                                    <td>{{e.apellido}}</td>
+                                    <td>{{e.fecha_ingreso}}</td>
+                                    <td>{{e.fecha_vigencia_carnet}}</td>
+                                    <td>{{e.numero_patente}}</td>
+                                    <td>
+                                        <form action="{% url 'Usuario:cadete_delete' %}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="id" value="{{ e.id }}"> 
+                                            <!-- Editar -->
+                                            <a href="#" class="btn btn-warning"><i class="fa-solid fa-file-pen"></i></a>
+                                            <!-- Eliminar -->
+                                            <button type="summit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div> </div></div></div>
+
+{% endblock contenido %}  
+

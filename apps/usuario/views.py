@@ -32,6 +32,29 @@ def logout_view(request):
     return render(request, "usuario/login.html", {"msj": "Deslogueado"})
 
 
+ # Lista
+#@login_required(login_url='Usuario:login')
+#@permission_required('Pedido.view_pedido', raise_exception=True)
+def lista_vista(request):
+    #listaPedidos = Pedido.objects.all()
+    return render(request,'usuario/lista.html')
+    #,{'pedidos': listaPedidos})
+
+
+
+# @login_required(login_url='Usuario:login')
+# @permission_required('Plato.add_plato', raise_exception=True)
+def crear_vista(request):
+    #  if (request.method == 'POST'):
+    #      plato_form = PlatoForm(request.POST, prefix='menu')
+    #      if plato_form.is_valid():
+    #          p=plato_form.save(commit=True)
+    #          return redirect(reverse('Pedido:menu_detalle', args={p.codigo_plato}))
+    #  else:
+    #      plato_form = PlatoForm(prefix='menu')
+    return render(request,'usuario/crear.html')
+     #{'plato_form': plato_form})
+
 
 
 # # Creacion
