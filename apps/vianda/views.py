@@ -13,7 +13,7 @@ from apps.vianda.forms import TipoPlatosForm, ViandaForm
 
 
 @login_required(login_url='usuario:login')
-@permission_required('vianda.add_plato', raise_exception=True)
+@permission_required('vianda.add_vianda', raise_exception=True)
 def crear_vianda(request):
     if (request.method == 'POST'):
         tipoplato_form = TipoPlatosForm(request.POST, prefix='tipopplato')
@@ -30,7 +30,7 @@ def crear_vianda(request):
     return render(request,'vianda/crear.html',{'vianda_form': vianda_form})
 
 @login_required(login_url='Usuario:login')
-#@permission_required('vianda.view_pedido', raise_exception=True)
+@permission_required('vianda.view_vianda', raise_exception=True)
 def lista_vianda(request):
     listavianda = Vianda.objects.all()
     return render(request,'vianda/lista.html',{'viandas': listavianda})

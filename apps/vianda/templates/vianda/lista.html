@@ -3,6 +3,8 @@
 {% block contenido %}
 {% load static %}
 
+{% if perms.vianda.add_vianda %}
+
 <div class="container">
     <div class="row mt-3">
         <div class="col">
@@ -37,6 +39,7 @@
                         </thead>
                         <tbody class="body">
                             {% for e in viandas %}
+                            {% if user.id == e.user.id %}
                                 <tr>
                                     <td>{{forloop.counter}}</td>
                                     <td>{{e.frecuencia}}</td>
@@ -47,10 +50,11 @@
                                     <td>{{e.tipo_platos}}</td>
                                    
                                 </tr>
+                                {%endif%}
                             {% endfor%}
                         </tbody>
                     </table>
                 </div> </div></div></div>
-
+{%endif%}
 {% endblock contenido %}  
 

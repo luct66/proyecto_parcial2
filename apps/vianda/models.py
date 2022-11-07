@@ -44,9 +44,9 @@ class Vianda(models.Model):
     cantidad = models.IntegerField(default=1)
     estado = models.CharField(choices=estados,max_length=200,default='Pendiente' ,blank= True)
     tipo_platos = models.ForeignKey(Tipo_Plato, on_delete=models.CASCADE,null=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null=True)
 
 
     def __str__(self):
-        texto = "{0}"
-        return texto.format(self.tipo_platos.descripcion)
+        texto = "{0}-{1}-{2}-{3}"
+        return texto.format(self.frecuencia,self.cantidad,self.tipo_menu,self.tipo_platos.descripcion)

@@ -2,6 +2,8 @@
 {% load static %}
 {% block contenido %}
 
+{% if perms.vianda.add_vianda %}
+
 
     <div class="d-flex justify-content-center">
         <div class="card col-sm-7 p-3 formulario"> 
@@ -23,5 +25,5 @@
             </form>
          </div></div> </div>     
 
-
+{%endif%}
 {% endblock contenido %}  
