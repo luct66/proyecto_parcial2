@@ -16,9 +16,8 @@ from apps.vianda.forms import TipoPlatosForm, ViandaForm
 @permission_required('vianda.add_vianda', raise_exception=True)
 def crear_vianda(request):
     if (request.method == 'POST'):
-        tipoplato_form = TipoPlatosForm(request.POST, prefix='tipopplato')
         vianda_form = ViandaForm(request.POST, prefix='vianda')
-        if vianda_form.is_valid() and tipoplato_form.is_valid():
+        if vianda_form.is_valid():
             v=vianda_form.save(commit=False)
             obtener_id_user = request.POST['id']
             v.user_id=obtener_id_user
@@ -26,7 +25,7 @@ def crear_vianda(request):
 
             return render(request,'base/index.html')
     else:
-          vianda_form = ViandaForm(prefix='menu')
+          vianda_form = ViandaForm(prefix='vianda')
     return render(request,'vianda/crear.html',{'vianda_form': vianda_form})
 
 @login_required(login_url='Usuario:login')
